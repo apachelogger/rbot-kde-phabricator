@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://phabricator.kde.org/api/project.query?api.token=API_TOKEN&phids%5B%5D=PHID-PROJ-ic6son3yl5tcvafnqbn6&phids%5B%5D=PHID-PROJ-o2ghhdqrnnhccudwekzd
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 12 Aug 2016 11:17:54 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - phsid=A%2Fu46j36hy73tzvzcocjtsshqd6byt5pvlmyxawojx; expires=Wed, 11-Aug-2021
+        11:17:54 GMT; Max-Age=157680000; path=/; domain=phabricator.kde.org; secure;
+        httponly
+      X-Frame-Options:
+      - DENY
+      - Deny
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      Cache-Control:
+      - no-store
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"result":{"data":{"PHID-PROJ-o2ghhdqrnnhccudwekzd":{"id":"100","phid":"PHID-PROJ-o2ghhdqrnnhccudwekzd","name":"Neon","profileImagePHID":"PHID-FILE-ldn5yccmbzzhhr2umoyp","icon":"organization","color":"blue","members":["PHID-USER-52tjusjy3fj45635wjgh","PHID-USER-4kerus6xjnzeqjtp3t2k"],"slugs":["neon"],"dateCreated":"1465461881","dateModified":"1469746666"},"PHID-PROJ-ic6son3yl5tcvafnqbn6":{"id":"75","phid":"PHID-PROJ-ic6son3yl5tcvafnqbn6","name":"Neon
+        Jenkins Administrators","profileImagePHID":"PHID-FILE-33bhgu4puik2hn3j7vdc","icon":"policy","color":"red","members":["PHID-USER-sbtr5bdfjssd5j7bajyc","PHID-USER-52tjusjy3fj45635wjgh","PHID-USER-4kerus6xjnzeqjtp3t2k"],"slugs":["neon_jenkins_administrators"],"dateCreated":"1457084331","dateModified":"1458733804"}},"slugMap":[],"cursor":{"limit":100,"after":null,"before":null}},"error_code":null,"error_info":null}'
+    http_version: 
+  recorded_at: Fri, 12 Aug 2016 11:17:54 GMT
+recorded_with: VCR 3.0.3

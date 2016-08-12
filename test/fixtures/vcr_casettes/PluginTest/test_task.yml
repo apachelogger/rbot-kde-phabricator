@@ -1,0 +1,104 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://phabricator.kde.org/api/maniphest.info?api.token=API_TOKEN&task_id=2970
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 12 Aug 2016 11:17:53 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - phsid=A%2Fafnho5c346bfqrldxafctrlxab5cct6toscs5exu; expires=Wed, 11-Aug-2021
+        11:17:53 GMT; Max-Age=157680000; path=/; domain=phabricator.kde.org; secure;
+        httponly
+      X-Frame-Options:
+      - DENY
+      - Deny
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      Cache-Control:
+      - no-store
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"result":{"id":"2970","phid":"PHID-TASK-irgimvnq7uw33iu6c5ry","authorPHID":"PHID-USER-4kerus6xjnzeqjtp3t2k","ownerPHID":"PHID-USER-4kerus6xjnzeqjtp3t2k","ccPHIDs":["PHID-USER-4kerus6xjnzeqjtp3t2k"],"status":"open","statusName":"Open","isClosed":false,"priority":"Normal","priorityColor":"orange","title":"aptly
+        sftp publishing to files.kde","description":"","projectPHIDs":["PHID-PROJ-o2ghhdqrnnhccudwekzd"],"uri":"https:\/\/phabricator.kde.org\/T2970","auxiliary":[],"objectName":"T2970","dateCreated":"1466498354","dateModified":"1467669756","dependsOnTaskPHIDs":[]},"error_code":null,"error_info":null}'
+    http_version: 
+  recorded_at: Fri, 12 Aug 2016 11:17:53 GMT
+- request:
+    method: get
+    uri: https://phabricator.kde.org/api/project.query?api.token=API_TOKEN&phids%5B%5D=PHID-PROJ-o2ghhdqrnnhccudwekzd
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 12 Aug 2016 11:17:53 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - phsid=A%2Fxpqryy5pyrvkevkbotsaqm7m2rsdnlqie4mgvvix; expires=Wed, 11-Aug-2021
+        11:17:53 GMT; Max-Age=157680000; path=/; domain=phabricator.kde.org; secure;
+        httponly
+      X-Frame-Options:
+      - DENY
+      - Deny
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      Cache-Control:
+      - no-store
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"result":{"data":{"PHID-PROJ-o2ghhdqrnnhccudwekzd":{"id":"100","phid":"PHID-PROJ-o2ghhdqrnnhccudwekzd","name":"Neon","profileImagePHID":"PHID-FILE-ldn5yccmbzzhhr2umoyp","icon":"organization","color":"blue","members":["PHID-USER-52tjusjy3fj45635wjgh","PHID-USER-4kerus6xjnzeqjtp3t2k"],"slugs":["neon"],"dateCreated":"1465461881","dateModified":"1469746666"}},"slugMap":[],"cursor":{"limit":100,"after":null,"before":null}},"error_code":null,"error_info":null}'
+    http_version: 
+  recorded_at: Fri, 12 Aug 2016 11:17:53 GMT
+recorded_with: VCR 3.0.3
