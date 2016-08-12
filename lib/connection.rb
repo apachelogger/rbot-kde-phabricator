@@ -79,7 +79,7 @@ module Conduit
     def client
       @client ||= Faraday.new(@uri.to_s) do |faraday|
         faraday.request :url_encoded
-        faraday.response :logger, ::Logger.new(STDOUT), bodies: true
+        # faraday.response :logger, ::Logger.new(STDOUT), bodies: true
         faraday.adapter Faraday.default_adapter
       end
     end
