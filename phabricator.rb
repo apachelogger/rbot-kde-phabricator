@@ -36,6 +36,7 @@ class PhabricatorPlugin < Plugin
   end
 
   def unreplied(m, _ = {})
+    return if skip?(m)
     maybe_task(m) unless m.replied?
     maybe_diff(m) unless m.replied?
   end
@@ -69,6 +70,14 @@ class PhabricatorPlugin < Plugin
     m.reply "Diff #{diff.id} \"#{diff.title}\" [#{diff.statusName}] #{diff.uri}"
   rescue => e
     m.notify "Diff not found ¯\\_(ツ)_/¯ #{e}"
+  end
+
+  private
+
+  def skip?(m)
+    %w(#kde-bugs-activity).any? do |exclude|
+      m.channel && m.channel.name == exclude
+    end
   end
 end
 

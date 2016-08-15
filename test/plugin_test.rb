@@ -35,8 +35,14 @@ class PluginTest < Test::Unit::TestCase
     Plugin.any_instance.stubs(:bot).returns(bot)
   end
 
+  def message_double
+    channel = mock('message-channel')
+    channel.stubs(:name).returns('#message-double-channel')
+    mock('message').tap { |m| m.stubs(:channel).returns(channel) }
+  end
+
   def test_get_task_unreplied
-    message = mock('message')
+    message = message_double
     message.stubs(:message).returns('yolo T123 T456 meow T789')
     message.stubs(:replied?).returns(false)
 
@@ -48,7 +54,7 @@ class PluginTest < Test::Unit::TestCase
   end
 
   def test_get_diff_unreplied
-    message = mock('message')
+    message = message_double
     message.stubs(:message).returns('yolo D123 D456 meow D789')
     message.stubs(:replied?).returns(false)
 
@@ -60,7 +66,7 @@ class PluginTest < Test::Unit::TestCase
   end
 
   def test_task
-    message = mock('message')
+    message = message_double
     message.expects(:reply).with('Task 2970 "aptly sftp publishing to files.kde" [Open,Normal] {Neon} https://phabricator.kde.org/T2970')
 
     VCR.use_cassette("#{self.class}/#{__method__}") do
@@ -70,7 +76,7 @@ class PluginTest < Test::Unit::TestCase
   end
 
   def test_task_fail
-    message = mock('message')
+    message = message_double
     message.expects(:notify).with('Task not found ¯\_(ツ)_/¯ ConduitError ERR_BAD_TASK: No such Maniphest task exists.')
 
     VCR.use_cassette(__method__) do
@@ -80,7 +86,7 @@ class PluginTest < Test::Unit::TestCase
   end
 
   def test_diff
-    message = mock('message')
+    message = message_double
     message.expects(:reply).with('Diff 2300 "always load about-distro in ctor" [Closed] https://phabricator.kde.org/D2300')
 
     VCR.use_cassette("#{self.class}/#{__method__}") do
@@ -90,12 +96,19 @@ class PluginTest < Test::Unit::TestCase
   end
 
   def test_diff_fail
-    message = mock('message')
+    message = message_double
     message.expects(:notify).with('Diff not found ¯\_(ツ)_/¯ can\'t dup NilClass')
 
     VCR.use_cassette(__method__) do
       plugin = PhabricatorPlugin.new
       plugin.diff(message, :number => -1)
     end
+  end
+
+  def test_skip
+    message = message_double
+    message.channel.stubs(:name).returns('#kde-bugs-activity')
+    plugin = PhabricatorPlugin.new
+    plugin.unreplied(message)
   end
 end
