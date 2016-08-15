@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-require_relative 'test_helper'
+require(File.expand_path('test_helper', File.dirname(__FILE__)))
 
 # Dud base class. We mocha this for functionality later.
 class Plugin

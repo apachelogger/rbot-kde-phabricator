@@ -19,9 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-require_relative 'lib/differential'
-require_relative 'lib/maniphest'
-require_relative 'lib/project'
+require(File.expand_path('lib/differential', File.dirname(__FILE__)))
+require(File.expand_path('lib/maniphest', File.dirname(__FILE__)))
+require(File.expand_path('lib/project', File.dirname(__FILE__)))
 
 # Phabricator Plugin
 class PhabricatorPlugin < Plugin
